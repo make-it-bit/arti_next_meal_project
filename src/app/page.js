@@ -1,9 +1,12 @@
+"use client";
 import Image from "next/image";
+import { Parallax, ParallaxProvider } from "react-scroll-parallax";
+
 import Form from "./components/Form.jsx";
 
 const Home = () => {
   return (
-    <div className="text-center">
+    <div className="text-center" speed={-10}>
       <header className=" pt-20 px-4">
         <h1 className="leading-normal text-8xl li font-bold bg-clip-text text-transparent bg-gradient-to-r from-black to-pink-500">
           Bitropia&apos;s Weight Department
@@ -13,7 +16,7 @@ const Home = () => {
         </p>
       </header>
       <main>
-        <section className="mt-6 w-3/5 mx-auto backdrop-blur-sm bg-white/20 rounded-md p-8 pb-2 border-solid border-2 border-gray-500 translate-y-12">
+        <section className="mt-6 w-3/5 mx-auto backdrop-blur-sm bg-white/20 rounded-md p-8 pb-2 border-solid border-2 border-black translate-y-12">
           <h2 className="text-3xl font-semibold">
             Our &quot;
             <span className="bg-black text-white px-1 rounded-sm">
