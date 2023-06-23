@@ -13,6 +13,29 @@ body {
   background-size: 200% 200%;
   animation: gradient 15s ease infinite;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.section_background {
+  background: rgb(131, 58, 180);
+  background: -moz-radial-gradient(
+    circle,
+    rgba(131, 58, 180, 0) 0%,
+    rgba(0, 0, 0, 1) 10%
+  );
+  background: -webkit-radial-gradient(
+    circle,
+    rgba(131, 58, 180, 0) 0%,
+    rgba(0, 0, 0, 1) 10%
+  );
+  background: radial-gradient(
+    circle,
+    rgba(131, 58, 180, 0) 0%,
+    rgba(0, 0, 0, 1) 10%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#833ab4",endColorstr="#000000",GradientType=1);
+  background-size: 200% 200%;
+  background-position: 10% 25%;
 }
 
 @keyframes gradient {
