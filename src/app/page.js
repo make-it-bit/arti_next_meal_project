@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Form from "./components/Form.jsx";
 
 const Home = () => {
   return (
@@ -35,10 +36,19 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section className="section_background h-48 pt-16">
+        <section className="section_background py-16">
           <h2 className="text-3xl font-semibold text-white">
             Roll the dice on Your new life
           </h2>
+          <div>
+            <h3 className="text-white mt-6 text-xl">
+              Please fill out this form by giving us all of Your personal data.
+            </h3>
+            <p className="text-gray-400 mb-6 text-md">
+              (Yes it will be sold to a third party)
+            </p>
+            <Form />
+          </div>
         </section>
       </main>
     </div>
