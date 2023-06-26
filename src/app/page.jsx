@@ -1,16 +1,42 @@
+import Butter from "buttercms";
 import Image from "next/image";
 
 import Form from "./components/Form.jsx";
 
-const Home = () => {
+const getStaticProps = async () => {
+  let butter;
+  try {
+    butter = Butter(process.env.BUTTER_AUTH_TOKEN, 0);
+  } catch (e) {
+    console.log(e);
+  }
+  const data = await butter.page.retrieve(
+    "landing-page",
+    "home-bitropias-weight-department"
+  );
+  return data.data.data.fields;
+};
+
+const { seo, body } = await getStaticProps();
+
+export const generateMetadata = async () => {
+  const metadata = {
+    title: seo.title,
+    description: seo.description,
+  };
+  return metadata;
+};
+const Home = async () => {
   return (
     <div className="text-center">
       <header className=" pt-20 px-4">
         <h1 className="leading-normal text-8xl li font-bold bg-clip-text text-transparent bg-gradient-to-r from-black to-pink-500">
-          Bitropia&apos;s Weight Department
+          {body ? body[1].fields.headline : "Bitropia"}
         </h1>
         <p className="text-xl mt-8">
-          Mold Yourself into an action hero like plasticine
+          {body
+            ? body[1].fields.subheadline.replace("<p>", "").replace("</p>", "")
+            : "Welcome"}
         </p>
       </header>
       <main>
@@ -18,21 +44,26 @@ const Home = () => {
           <h2 className="text-3xl font-semibold">
             Our &quot;
             <span className="bg-black text-white px-1 rounded-sm">
-              Make It Happen Guarantee
+              {body ? body[0].fields.headline : "Guarantee"}
             </span>
             &quot;
           </h2>
           <div className="flex justify-center items-center mx-auto">
             <div className="w-1/3">
-              <Image src="/man_1.png" alt="a man" width={300} height={500} />
+              <Image
+                src={body[0].fields.image}
+                alt="a man"
+                width={300}
+                height={500}
+              />
             </div>
             <div className="w-2/3 text-left">
               <p className="text-xl">
-                Your weight will drop, Your pants will drop, Your shirts will
-                feel loose, You will have loose skin. Otherwise this guy will
-                eat his hat. Aliquip aliquip nostrud incididunt elit commodo
-                ullamco est Lorem non eu tempor. Labore sint non eu exercitation
-                sint.
+                {body
+                  ? body[0].fields.subheadline
+                      .replace("<p>", "")
+                      .replace("</p>", "")
+                  : "Dolor labore officia nostrud incididunt qui ea labore incididunt labore. No butter."}
               </p>
             </div>
           </div>
