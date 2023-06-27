@@ -10,6 +10,6 @@ export const GET = async (req) => {
     const recipes = data.hits.splice(0, 3);
     return NextResponse.json(recipes);
   } catch (e) {
-    return NextResponse.json({ error: "Failed to fetch recipes." });
+    return NextResponse.json({ error: "An error occured fetching the meal." });
   }
 };
