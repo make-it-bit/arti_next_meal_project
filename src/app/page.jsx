@@ -28,18 +28,18 @@ export const generateMetadata = async () => {
 const Home = async () => {
   return (
     <div className="text-center">
-      <header className=" pt-20 px-4">
-        <h1 className="leading-normal text-8xl li font-bold bg-clip-text text-transparent bg-gradient-to-r from-black to-pink-500">
+      <header className="min-[300px]:pt-15 md:pt-20 pt-10 sm:px-4 lg:px-8 mx-auto lg:w-4/5 w-11/12">
+        <h1 className="mb-8 2xl:text-8xl lg:text-8xl text-3xl min-[300px]:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-black to-pink-500">
           {body ? body[1].fields.headline : "Bitropia"}
         </h1>
-        <p className="text-xl mt-8">
+        <p className="text-lg min-[300px]:text-xl">
           {body
             ? body[1].fields.subheadline.replace("<p>", "").replace("</p>", "")
             : "Welcome"}
         </p>
       </header>
       <main>
-        <section className="mt-6 w-3/5 mx-auto backdrop-blur-sm bg-white/20 rounded-md p-8 pb-2 border-solid border-2 border-black translate-y-12">
+        <section className="md:mt-6 w-5/6 md:w-4/5 lg:w-3/5 mx-auto backdrop-blur-sm bg-white/20 rounded-md p-4 md:p-8 pb-2 border-solid border-2 border-black translate-y-12">
           <h2 className="text-3xl font-semibold">
             Our &quot;
             <span className="bg-black text-white px-1 rounded-sm">
@@ -48,15 +48,16 @@ const Home = async () => {
             &quot;
           </h2>
           <div className="flex justify-center items-center mx-auto">
-            <div className="w-1/3">
+            <div className="sm:w-1/3">
               <Image
                 src={body[0].fields.image}
                 alt="a man"
                 width={300}
                 height={500}
+                className="hidden sm:block"
               />
             </div>
-            <div className="w-2/3 text-left">
+            <div className="sm:w-2/3 sm:text-left">
               <p className="text-xl">
                 {body
                   ? body[0].fields.subheadline
@@ -67,7 +68,7 @@ const Home = async () => {
             </div>
           </div>
         </section>
-        <section className="section_background py-16">
+        <section className="section_background py-16 px-4">
           <h2 className="text-3xl font-semibold text-white">
             Roll the dice on Your new life
           </h2>

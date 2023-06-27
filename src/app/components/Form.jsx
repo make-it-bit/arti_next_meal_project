@@ -37,7 +37,7 @@ const Form = () => {
 
   return (
     <form
-      className="w-2/5 bg-zinc-900 mx-auto flex flex-col text-xl font-normal px-8 pb-4 text-gray-400 rounded-md"
+      className="sm:w-3/5 lg:w-2/5 bg-zinc-900 mx-auto flex flex-col text-xl font-normal px-8 pb-4 text-gray-400 rounded-md"
       onSubmit={sumbitHandler}
     >
       <label className="mt-4">Your name please</label>
@@ -117,7 +117,7 @@ const Form = () => {
         value={agreement}
         onChange={() => setAgreement((agreement) => !agreement)}
       />
-      <button className="bg-[#B43A7A] text-black w-3/5 mx-auto rounded-md mt-4 p-1 font-medium">
+      <button className="bg-[#B43A7A] text-black sm:w-3/5 mx-auto rounded-md mt-4 p-1 font-medium">
         Get Control of Your Life
       </button>
     </form>

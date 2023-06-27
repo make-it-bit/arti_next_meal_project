@@ -13,7 +13,7 @@ const page = async ({ params: { mealId } }) => {
 
   return (
     <div className="text-center backdrop-blur-md bg-white/20 my-12 w-4/5 mx-auto p-8 rounded-md">
-      <header className="">
+      <header>
         <h1 className="text-4xl font-semibold">{mealData?.label}</h1>
       </header>
       <main>
