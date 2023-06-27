@@ -16,7 +16,6 @@ const getStaticProps = async () => {
   );
   return data.data.data.fields;
 };
-
 const { seo, body } = await getStaticProps();
 
 export const generateMetadata = async () => {

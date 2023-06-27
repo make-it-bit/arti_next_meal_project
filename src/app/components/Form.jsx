@@ -16,10 +16,23 @@ const Form = () => {
   const sumbitHandler = async (e) => {
     e.preventDefault();
 
-    router.push({
-      pathname: "/results",
-      query: { name, email, age, weight, height, activityLevel, agreement },
-    });
+    const res = await fetch("http://localhost:3000/api/meals");
+    const meals = await res.json();
+
+    localStorage.setItem("bitropiaMeals", JSON.stringify(meals));
+    localStorage.setItem(
+      "bitropiaPersData",
+      JSON.stringify({
+        name,
+        email,
+        age,
+        weight,
+        height,
+        activityLevel,
+        agreement,
+      })
+    );
+    router.push("/results");
   };
 
   return (
